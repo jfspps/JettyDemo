@@ -9,12 +9,13 @@ public class JettyServer {
 
     public static final String COOKIE_DOMAIN = "cookie.domain";
 
-    public static final String SESSION_COOKIE_NAME = "JSESSIONID_WORKSPACE_INTERFACE";
+    public static final String SESSION_COOKIE_NAME = "JSESSIONID_JETTY_DEMO";
     public static final int COOKIE_LIFETIME_IN_SECONDS = 84600;
 
     // intended for RESTful clients (add v2, v3... whenever required)
     public static final String API_V1_ENDPOINT = "/api/v1";
 
+    // query parameter names (or form data field names)
     public static final String REDIRECT_QUERY_PARAMETER = "return";
     public static final String ERROR_QUERY_PARAMETER = "err";
 }
