@@ -21,7 +21,8 @@ public class ResourceList {
     /**
      * Walks through a directory tree, starting from the parent directory given, and proceeds to
      * add the filename of any file discovered
-     * @param dir Directory path, in the form "abc/def", where "abc" and "def" are folders
+     * @param dir Directory path. If preceded with "/" then this is taken as absolute to the system (host); otherwise,
+     *            it is taken as relative to the JAR file
      * @return
      * @throws IOException
      */
@@ -33,7 +34,16 @@ public class ResourceList {
             throw new IOException("Missing a directory path");
         }
 
-        Files.walkFileTree(Paths.get(dir), new SimpleFileVisitor<>() {
+        if (dir.startsWith("/")){
+            logger.debug("Absolute path requested: " + dir);
+        } else
+            logger.debug("Relative path requested: " + dir);
+
+        // (this might not be necessary...) replace any URL friendly %2F with /
+        String updatedDir = dir.replaceAll("%2F", "/");
+        logger.debug("Updated path: " + updatedDir);
+
+        Files.walkFileTree(Paths.get(updatedDir), new SimpleFileVisitor<>() {
 
             // define what to do when SimpleFileVisitor finds a file
             @Override

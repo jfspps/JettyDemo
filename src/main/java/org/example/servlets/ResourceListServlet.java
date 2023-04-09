@@ -10,9 +10,13 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Set;
 
+/**
+ * Prints a list of files found in a directory either absolutely (precede with "/") or relatively to the JAR (do not
+ * precede with "/").
+ */
 public class ResourceListServlet extends HttpServlet {
 
-    private Logger logger = LoggerFactory.getLogger(ResourceListServlet.class);
+    private final Logger logger = LoggerFactory.getLogger(ResourceListServlet.class);
 
     public static final String RESOURCE_ENDPOINT = "/resource";
 
@@ -21,8 +25,15 @@ public class ResourceListServlet extends HttpServlet {
 
         logger.debug("GET request received");
 
-        // "target/classes/" becomes "classes" on packaging
-        Set<String> filenameList = ResourceList.instance().getResourcesFileList("classes");
+        String workingDirectory = request.getParameter("dir");
+
+        if (workingDirectory == null || workingDirectory.isBlank()){
+            logger.debug("No working directory query param or form data passed...aborting...");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
+
+        Set<String> filenameList = ResourceList.instance().getResourcesFileList(workingDirectory);
 
         try {
 

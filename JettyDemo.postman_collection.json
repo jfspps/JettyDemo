@@ -32,7 +32,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1123/api/v1/resource",
+					"raw": "localhost:1123/api/v1/resource?dir=%2Fhome%2Fjames%2Fdev%2F",
 					"host": [
 						"localhost"
 					],
@@ -41,18 +41,24 @@
 						"api",
 						"v1",
 						"resource"
+					],
+					"query": [
+						{
+							"key": "dir",
+							"value": "%2Fhome%2Fjames%2Fdev%2F"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET /api/v1/resource/pub",
+			"name": "GET /api/v1/download FILE",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1123/api/v1/resource/pub",
+					"raw": "localhost:1123/api/v1/download/pub/test1.txt",
 					"host": [
 						"localhost"
 					],
@@ -60,20 +66,21 @@
 					"path": [
 						"api",
 						"v1",
-						"resource",
-						"pub"
+						"download",
+						"pub",
+						"test1.txt"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET /api/v1/resource/priv",
+			"name": "GET /api/v1/download FOLDER",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1123/api/v1/resource/priv",
+					"raw": "localhost:1123/api/v1/download/pub/",
 					"host": [
 						"localhost"
 					],
@@ -81,8 +88,9 @@
 					"path": [
 						"api",
 						"v1",
-						"resource",
-						"priv"
+						"download",
+						"pub",
+						""
 					]
 				}
 			},

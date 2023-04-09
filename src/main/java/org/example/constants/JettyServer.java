@@ -5,6 +5,8 @@ public class JettyServer {
     // pick anything not already in use (0 - 1023 are well-known ports)
     public static final int PORT = 1123;
 
+    public static final int PACKET_SIZE = 1024;
+
     public static final Integer REQUEST_FORM_MAX_SIZE_IN_BYTES = Integer.MAX_VALUE;
 
     public static final String COOKIE_DOMAIN = "cookie.domain";
