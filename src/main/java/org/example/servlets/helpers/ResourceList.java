@@ -21,7 +21,7 @@ public class ResourceList {
     /**
      * Walks through a directory tree, starting from the parent directory given, and proceeds to
      * add the filename of any file discovered
-     * @param dir Directory, in the form "/abc/def"
+     * @param dir Directory path, in the form "abc/def", where "abc" and "def" are folders
      * @return
      * @throws IOException
      */
