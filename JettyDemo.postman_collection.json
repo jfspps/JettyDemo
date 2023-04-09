@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "04342fa0-d390-42ef-b4ec-c7312a857cbf",
+		"name": "JettyDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14524245"
+	},
+	"item": [
+		{
+			"name": "POST /api/v1/demo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:1123/api/v1/demo",
+					"host": [
+						"localhost"
+					],
+					"port": "1123",
+					"path": [
+						"api",
+						"v1",
+						"demo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/resource",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1123/api/v1/resource",
+					"host": [
+						"localhost"
+					],
+					"port": "1123",
+					"path": [
+						"api",
+						"v1",
+						"resource"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/resource/pub",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1123/api/v1/resource/pub",
+					"host": [
+						"localhost"
+					],
+					"port": "1123",
+					"path": [
+						"api",
+						"v1",
+						"resource",
+						"pub"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/resource/priv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1123/api/v1/resource/priv",
+					"host": [
+						"localhost"
+					],
+					"port": "1123",
+					"path": [
+						"api",
+						"v1",
+						"resource",
+						"priv"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

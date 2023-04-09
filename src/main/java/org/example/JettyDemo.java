@@ -10,6 +10,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.example.constants.JettyServer;
 import org.example.servlets.DemoServlet;
+import org.example.servlets.PrivResourceListServlet;
+import org.example.servlets.PubResourceListServlet;
 import org.example.servlets.ResourceListServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,6 +89,8 @@ public class JettyDemo {
 
         servlets.addServlet(new ServletHolder(new DemoServlet()), JettyServer.API_V1_ENDPOINT + DemoServlet.DEMO_ENDPOINT);
         servlets.addServlet(new ServletHolder(new ResourceListServlet()), JettyServer.API_V1_ENDPOINT + ResourceListServlet.RESOURCE_ENDPOINT);
+        servlets.addServlet(new ServletHolder(new PubResourceListServlet()), JettyServer.API_V1_ENDPOINT + PubResourceListServlet.RESOURCE_ENDPOINT);
+        servlets.addServlet(new ServletHolder(new PrivResourceListServlet()), JettyServer.API_V1_ENDPOINT + PrivResourceListServlet.RESOURCE_ENDPOINT);
 
         // add the servlets to the context handlers list
         handlers.addHandler(servlets);

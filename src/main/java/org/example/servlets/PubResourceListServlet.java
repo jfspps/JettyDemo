@@ -10,25 +10,25 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Set;
 
-public class ResourceListServlet extends HttpServlet {
+public class PubResourceListServlet extends HttpServlet {
 
-    private Logger logger = LoggerFactory.getLogger(ResourceListServlet.class);
+    private Logger logger = LoggerFactory.getLogger(PubResourceListServlet.class);
 
-    public static final String RESOURCE_ENDPOINT = "/resource";
+    public static final String RESOURCE_ENDPOINT = "/resource/pub";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         logger.debug("GET request received");
 
-        // "target/classes/" becomes "classes" on packaging
-        Set<String> filenameList = ResourceList.instance().getResourcesFileList("classes");
+        // "target/classes/pub" becomes "classes/pub" on packaging
+        Set<String> filenameList = ResourceList.instance().getResourcesFileList("classes/pub");
 
         try {
 
             for (String filename: filenameList) {
                 response.getWriter()
-                        .append("File found: ")
+                        .append("Public File found: ")
                         .append(filename)
                         .append("\n");
             }
